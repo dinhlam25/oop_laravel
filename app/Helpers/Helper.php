@@ -9,10 +9,10 @@ class Helper
 {
     public static function category($categories, $list_id = 0, $char = '')
     {
-        $htlm = '';
+        $html = '';
         foreach ($categories as $key => $category) {
             if ($category->list_id == $list_id) {
-                $htlm .= '
+                $html .= '
                      <tr>
                         <td style="width: 50px">' . $category->id . '</td>
                         <td>' . $char . $category->name . '</td>
@@ -32,10 +32,10 @@ class Helper
                     ';
                 unset($categories[$key]);
 
-                $htlm .= self::category($categories, $category->id, $char . '--');
+                $html .= self::category($categories, $category->id, $char . '--');
             }
         }
-        return $htlm;
+        return $html;
     }
 
     public static function status($status = 0): string
@@ -60,7 +60,7 @@ class Helper
             if ($category->list_id == $list_id) {
                 $html .= '
                     <li>
-                        <a href="/treeshopHAT/public/danh-muc/' . $category->id . '-' . Str::slug($category->name, '-') . '.html">
+                        <a href="/danh-muc/' . $category->id . '-' . Str::slug($category->name, '-') . '.html">
                             ' . $category->name . '
                         </a>';
 

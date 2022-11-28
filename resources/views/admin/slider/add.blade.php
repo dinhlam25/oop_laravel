@@ -20,14 +20,22 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="menu">Ảnh Sản Phẩm</label>
                 <input type="file"  class="form-control" id="upload">
                 <div id="image_show">
                 </div>
                 <input type="hidden" name="avatar" id="avatar">
-            </div>
+            </div> --}}
 
+            <div class="form-group">
+                <label for="menu">Ảnh Sản Phẩm</label>
+                <input type="file" class="form-control" id="avatar" name="avatar">
+                <div id="image_show">
+                </div>
+                {{-- <input type="hidden" name="avatar" id="avatar"> --}}
+
+            </div>
 
             <div class="form-group">
                 <label for="menu">Sắp Xếp</label>

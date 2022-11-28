@@ -14,26 +14,38 @@ class ProductAdminService
     }
 
 
-        public function insert($request){
+    public function insert($request){
 
-            $isValidPrice = $this->isValidPrice($request);
-            if ($isValidPrice === false ) return false;
+        $isValidPrice = $this->isValidPrice($request);
+        if ($isValidPrice === false ) return false;
 
-            try {
-                $request->except('_token');
-                Product::create($request->all(),[
-                    'producer_id'=>'0'
-                ]);
-                Session::flash('success', 'Thêm Sản phẩm thành công');
-            } catch (\Exception $err) {
-                Session::flash('error', 'Thêm Sản phẩm lỗi');
-                \Log::info($err->getMessage());
-                return  false;
-            }
-
-            return  true;
+        try {
+            $request->except('_token');
+            Product::create($request->all(),[
+                'producer_id'=>'0'
+            ]);
+            Session::flash('success', 'Thêm Sản phẩm thành công');
+        } catch (\Exception $err) {
+            Session::flash('error', 'Thêm Sản phẩm lỗi');
+            \Log::info($err->getMessage());
+            return  false;
         }
 
+        return  true;
+    }
+    private function isValidQuantity($request)
+    {
+        if($request->input('quantity') < 0 )
+        {
+            Session::flash('error', 'Số lượng sản phẩm phải lớn hơn 0');
+            return false;
+        }
+        if ($request->input('quantity') == 0) {
+            Session::flash('error', 'Vui lòng nhập số lượng');
+            return false;
+        }
+            return true;
+    }
     private function isValidPrice($request)
     { if ($request->input('price') != 0 && $request->input('price_sale') != 0
         && $request->input('price_sale') >= $request->input('price')
@@ -60,7 +72,7 @@ class ProductAdminService
         $isValidQuantity = $this->isValidQuantity($request);
 
         $isValidPrice = $this->isValidPrice($request);
-        if ($isValidPrice === false && isValidQuantity === false) return false;
+        if ($isValidPrice === false && $isValidQuantity === false) return false;
 
         try {
             $product->fill($request->input());

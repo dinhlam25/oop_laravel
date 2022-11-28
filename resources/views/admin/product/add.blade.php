@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="menu">Tên Sản Phẩm</label>
-                        <input type="text" name="name" value="{{ old('name') }}" class="form-control"  placeholder="Nhập tên sản phẩm">
+                        <label for="name">Tên Sản Phẩm</label>
+                        <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control"  placeholder="Nhập tên sản phẩm">
                     </div>
                 </div>
 
@@ -31,15 +31,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="menu">Giá Gốc</label>
-                        <input type="number" name="price" value="{{ old('price') }}"  class="form-control" >
+                        <label for="price">Giá Gốc</label>
+                        <input type="number" name="price" id="price" value="{{ old('price') }}"  class="form-control" >
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="menu">Giá Giảm</label>
-                        <input type="number" name="price_sale" value="{{ old('price_sale') }}"  class="form-control" >
+                        <label for="price_sale">Giá Giảm</label>
+                        <input type="number" name="price_sale" id="price_sale" value="{{ old('price_sale') }}"  class="form-control" >
                     </div>
                 </div>
             </div>
@@ -47,15 +47,15 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="menu">Số Lượng Còn</label>
-                        <input type="number" name="quantity" value="{{ old('quantity') }}"  class="form-control" >
+                        <label for="quantity">Số Lượng Còn</label>
+                        <input type="number" name="quantity" id="quantity" value="{{ old('quantity') }}"  class="form-control" >
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="menu">Số Lượng Đã Bán</label>
-                        <input type="number" name="quantity_sold" value="{{ old('quantity_sold') }}"  class="form-control" >
+                        <label for="quantity_sold">Số Lượng Đã Bán</label>
+                        <input type="number" name="quantity_sold" id="quantity_sold" value="{{ old('quantity_sold') }}"  class="form-control" >
                     </div>
                 </div>
             </div>
@@ -67,12 +67,13 @@
 
             <div class="form-group">
                 <label for="menu">Ảnh Sản Phẩm</label>
-                <input type="file" class="form-control" id="upload" >
+                <input type="file" class="form-control" id="avatar" name="avatar">
                 <div id="image_show">
                 </div>
-                <input type="hidden" name="avatar" id="avatar">
+                {{-- <input type="hidden" name="avatar" id="avatar"> --}}
 
             </div>
+  
 
             <div class="form-group">
                 <label>Kích Hoạt</label>

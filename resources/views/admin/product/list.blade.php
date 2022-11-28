@@ -29,11 +29,11 @@
                 <td>{!! \App\Helpers\Helper::status($product->status) !!}</td>
                 <td>{{ $product->updated_at }}</td>
                 <td>
-                    <a class="btn btn-primary btn-sm" href="/treeshopHAT/public/admin/products/edit/{{ $product->id }}">
+                    <a class="btn btn-primary btn-sm" href="/admin/products/edit/{{ $product->id }}">
                         <i class="fas fa-edit"></i>
                     </a>
                     <a href="#" class="btn btn-danger btn-sm"
-                       onclick="removeRow({{ $product->id }}, '/treeshopHAT/public/admin/products/destroy/{{ $product->id }}')">
+                       onclick="removeRow({{ $product->id }}, '/admin/products/destroy/{{ $product->id }}')">
                         <i class="fas fa-trash"></i>
                     </a>
                 </td>

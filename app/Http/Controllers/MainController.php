@@ -26,7 +26,7 @@ class MainController extends Controller
 
     public function index(){
         return view('home',[
-            'title'=>'Shop bán cây cảnh',
+            'title'=>'Shop điện tử',
             'sliders'=>$this->slider->show(),
             'categories'=>$this->category->show(),
             'products'=>$this->product->geteight(),
@@ -70,11 +70,28 @@ class MainController extends Controller
     }
     public function profile(){
         return view('profile',[
-            'title'=>'Shop bán cây cảnh',
+            'title'=>'Tech Shop',
             'sliders'=>$this->slider->show(),
             'categories'=>$this->category->show(),
             'products'=>$this->product->geteight(),
             'productsID' => $this->product->getID()
         ]);
     }
+    public function contact(){
+        return view('contact',['title'=>'Tech Shop',
+        'sliders'=>$this->slider->show(),
+        'categories'=>$this->category->show(),
+        'products'=>$this->product->geteight(),
+        'productsID' => $this->product->getID()
+    ]);
+    }
+    public function news(){
+        return view('news',['title'=>'Tech Shop',
+        'sliders'=>$this->slider->show(),
+        'categories'=>$this->category->show(),
+        'products'=>$this->product->geteight(),
+        'productsID' => $this->product->getID()
+    ]);
+    }
 }
+

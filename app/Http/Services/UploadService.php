@@ -17,7 +17,7 @@ class UploadService
                     'public/'.$pathFull, $name
                 );
 
-                return  '/treeshopHAT/public/storage/'.$pathFull.'/'.$name;
+                return  '/storage/'.$pathFull.'/'.$name;
             }catch (\Exception $error){
                 return false;
             }
