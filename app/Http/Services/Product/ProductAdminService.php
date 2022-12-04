@@ -14,16 +14,17 @@ class ProductAdminService
     }
 
 
-    public function insert($request){
+    public function insert($arr,$request){
 
         $isValidPrice = $this->isValidPrice($request);
         if ($isValidPrice === false ) return false;
 
         try {
             $request->except('_token');
-            Product::create($request->all(),[
+            Product::create($arr,$request->all(),[
                 'producer_id'=>'0'
             ]);
+            // dd($request->url());
             Session::flash('success', 'Thêm Sản phẩm thành công');
         } catch (\Exception $err) {
             Session::flash('error', 'Thêm Sản phẩm lỗi');

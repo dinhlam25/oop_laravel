@@ -7,6 +7,7 @@ use App\Http\Requests\Product\ProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Services\Product\ProductAdminService;
+use App\Http\Services\UploadService;
 
 class ProductController extends Controller
 {
@@ -35,9 +36,33 @@ class ProductController extends Controller
     }
 
 
-    public function store(ProductRequest $request)
+    // public function store(ProductRequest $request,UploadService $upload)
+    // {
+    //     $images = $upload->store($request);
+    //     $request['avatar'] = $images;
+    //     dd($images);
+    //     $this->productService->insert($request);
+
+    //     return redirect()->back();
+    // }
+    public function store(ProductRequest $request, UploadService $upload)
     {
-        $this->productService->insert($request);
+        $image = $upload->store($request);
+        $request['avatar'] = $image;
+        
+        $arr = [
+            "name" => $request->name,
+            "category_id" => $request->category_id,
+            "price" => $request->price,
+            "price_sale" => $request->price_sale,
+            "quantity" => $request->quantity,
+            "quantity_sold" => $request->quantity_sold,
+            "detail" => $request->detail,
+            "status" => $request->status,
+            "avatar" => $image,
+        ];
+
+        $this->productService->insert($arr, $request);
 
         return redirect()->back();
     }
