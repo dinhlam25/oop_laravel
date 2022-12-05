@@ -84,8 +84,8 @@
                                             @foreach($categories as $category)
                                                 <li class="lis-ca">
                                                     <a class="link-ca" href="/danh-muc/{{ $category->id }}-{{ Str::slug($category->name, '-') }}.html"> <i class="fa fa-caret-right icon-ca"></i> {{$category->name}}</a>
-                                                    <button class="dropdown-btn btn-ca ca-letf fa fa-angle-down"><i class=""></i>
-                                                    </button>
+                                                    <!-- <button class="dropdown-btn btn-ca ca-letf fa fa-angle-down"><i class=""></i>
+                                                    </button> -->
                                                     <div class="dropdown-container">
                                                         @foreach($category-> categoryChilden as $categoryChilden)
                                                             <a href="/danh-muc/{{ $categoryChilden->id }}-{{ Str::slug($categoryChilden->name, '-') }}.html">
